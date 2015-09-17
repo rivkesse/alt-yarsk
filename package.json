@@ -1,5 +1,5 @@
 {
-  "name": "yarsk",
+  "name": "alt-yarsk",
   "version": "1.0.0",
   "description": "My React starter kit. Webpack, Babel, Sass, React 0.13 and more.",
   "main": "app/index.js",

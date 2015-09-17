@@ -2,6 +2,7 @@ var fs = require('fs');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var TemplatesPlugin = require("react-templates");
 
 function extractForProduction(loaders) {
   return ExtractTextPlugin.extract('style', loaders.substr(loaders.indexOf('!')));
@@ -14,11 +15,13 @@ module.exports = function(options) {
   var cssLoaders = 'style!css?localIdentName=' + localIdentName + '!autoprefixer?browsers=last 2 versions';
   var scssLoaders = cssLoaders + '!sass';
   var sassLoaders = scssLoaders + '?indentedSyntax=sass';
+  // var templateLoaders = 'react-templates!./template.rt';
 
   if (options.production) {
     cssLoaders = extractForProduction(cssLoaders);
     sassLoaders = extractForProduction(sassLoaders);
     scssLoaders = extractForProduction(scssLoaders);
+    // templateLoaders = extractForProduction(templateLoaders);
   }
 
   var jsLoaders = ['babel'];
@@ -41,6 +44,10 @@ module.exports = function(options) {
         },
       ] : [],
       loaders: [
+        {
+            test: /\.rt/,
+            loader: "react-templates-loader"
+        },
         {
           test: /\.js$/,
           exclude: /node_modules/,
