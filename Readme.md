@@ -1,12 +1,11 @@
 # YARSK
 
-**Y**et **A**nother **R**eact **S**tarter **K**it.
+Alternate version of **Y**et **A**nother **R**eact **S**tarter **K**it.
 
-Everyone has one, here's mine.
 
 ## Credits
 
-Modified version of [YARSK](https://github.com/bradleyboy/yarsk)
+Forked from [YARSK](https://github.com/bradleyboy/yarsk)
 
 ## Usage
 
@@ -35,7 +34,7 @@ You can also automatically publish to GitHub pages. Just run this instead of the
 npm run build:gh
 ```
 
-You can then view your app at `http://[yourgithubusername].github.io/[reponame]`. For example, you can load this demo at http://bradleyboy.github.io/yarsk.
+You can then view your app at `http://[yourgithubusername].github.io/[reponame]`. For example, you can load the original demo at http://bradleyboy.github.io/yarsk.
 
 ## Modifying the HTML
 
