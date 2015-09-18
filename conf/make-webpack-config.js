@@ -1,8 +1,8 @@
 var fs = require('fs');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var TemplatesPlugin = require("react-templates");
+var TemplatesPlugin = require('react-templates');
 
 function extractForProduction(loaders) {
   return ExtractTextPlugin.extract('style', loaders.substr(loaders.indexOf('!')));
@@ -27,7 +27,7 @@ module.exports = function(options) {
   var jsLoaders = ['babel'];
 
   return {
-    entry: './app/index.jsx',
+    entry: './app/app.js',
     debug: !options.production,
     devtool: options.devtool,
     output: {
@@ -46,7 +46,7 @@ module.exports = function(options) {
       loaders: [
         {
             test: /\.rt/,
-            loader: "react-templates-loader"
+            loader: 'react-templates-loader'
         },
         {
           test: /\.js$/,
@@ -72,19 +72,19 @@ module.exports = function(options) {
         },
         {
           test: /\.png$/,
-          loader: "url?limit=100000&mimetype=image/png",
+          loader: 'url?limit=100000&mimetype=image/png',
         },
         {
           test: /\.svg$/,
-          loader: "url?limit=100000&mimetype=image/svg+xml",
+          loader: 'url?limit=100000&mimetype=image/svg+xml',
         },
         {
           test: /\.gif$/,
-          loader: "url?limit=100000&mimetype=image/gif",
+          loader: 'url?limit=100000&mimetype=image/gif',
         },
         {
           test: /\.jpg$/,
-          loader: "file",
+          loader: 'file',
         },
       ],
     },
@@ -94,8 +94,8 @@ module.exports = function(options) {
     plugins: options.production ? [
       // Important to keep React file size down
       new webpack.DefinePlugin({
-        "process.env": {
-          "NODE_ENV": JSON.stringify("production"),
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production'),
         },
       }),
       new webpack.optimize.DedupePlugin(),
@@ -104,7 +104,7 @@ module.exports = function(options) {
           warnings: false,
         },
       }),
-      new ExtractTextPlugin("app.[hash].css"),
+      new ExtractTextPlugin('app.[hash].css'),
       new HtmlWebpackPlugin({
         template: './conf/tmpl.html',
         production: true,
